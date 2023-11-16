@@ -1,4 +1,5 @@
 import axios from "axios";
+import {Helmet} from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const Reservation = () => {
@@ -38,6 +39,9 @@ const Reservation = () => {
   };
   return (
     <div className="border shadow-xl p-10 mx-3">
+      <Helmet>
+        <title>MealCage | Reservation</title>
+      </Helmet>
       <h1 className="text-center text-4xl my-5 uppercase">Reserve Form</h1>
       <form onSubmit={handleReserve}>
         <div className="grid grid-cols-2 gap-4">

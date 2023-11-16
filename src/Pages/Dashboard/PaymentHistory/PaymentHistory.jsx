@@ -3,6 +3,7 @@ import axios from "axios";
 import {useContext} from "react";
 import {AuthContext} from "../../../Providers/AuthProvider";
 import HistoryCard from "./HistoryCard";
+import {Helmet} from "react-helmet-async";
 
 
 
@@ -24,6 +25,9 @@ const PaymentHistory = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>MealCage | Payment-history</title>
+            </Helmet>
             <div className="grid grid-cols-1 gap-4 w-full">
                 {
                     payment.map(paymentData => <HistoryCard key={paymentData._id} paymentData={paymentData}></HistoryCard> )

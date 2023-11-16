@@ -77,7 +77,7 @@ const Dashboard = () => {
                 </li>
              
                 <li>
-                  <Link>
+                  <Link to={'/dashboard/manageBookings'}>
                     <BiSolidBook size={26} />{" "}
                     <span className="text-teal-500 font-semibold">
                       {" "}

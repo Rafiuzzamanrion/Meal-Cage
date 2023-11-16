@@ -21,6 +21,7 @@ import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Reservation from "../Pages/Dashboard/Reservation/Reservation";
 import Contact from "../Pages/Contact/Contact";
+import ManageBookings from "../Pages/Dashboard/ManageBookings/ManageBookings";
 
 
 
@@ -109,7 +110,10 @@ const router = createBrowserRouter([
           path:'manageItems',
           element:<AdminRoutes><ManageItems></ManageItems></AdminRoutes>
         },
-       
+       {
+        path:'manageBookings',
+        element:<AdminRoutes><ManageBookings></ManageBookings></AdminRoutes>
+       }
         
 
       ],

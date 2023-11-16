@@ -14,6 +14,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Helmet } from "react-helmet-async";
 
 const UserHome = () => {
   const { user } = useContext(AuthContext);
@@ -134,6 +135,9 @@ const UserHome = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>MealCage | User-home</title>
+      </Helmet>
       <h1 className="text-3xl my-6 ps-24">Hi, {user.displayName}</h1>
       <div className="grid md:grid-cols-2 gap-4 ps-24">
         <div className="w-72 h-40 bg-green-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
@@ -171,11 +175,11 @@ const UserHome = () => {
             height={300}
             data={newArray}
             margin={{
-               top:30,
-                right: 20,
-              
-                bottom: 5,
-              }}
+              top: 30,
+              right: 20,
+
+              bottom: 5,
+            }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="category" />
