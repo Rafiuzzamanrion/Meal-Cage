@@ -7,7 +7,7 @@ import UseCart from "../../Hooks/UseCart";
 
 
 const FoodCard = ({item}) => {
-    const {name,image,recipe,price,_id} = item;
+    const {name,image,recipe,price,_id,category} = item;
     const {user} = useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation();
@@ -18,7 +18,7 @@ const FoodCard = ({item}) => {
     const handleAddToCart = item =>{
       item
       if(user && user.email){
-        const cartItem = {foodId:_id, name,image,price,email:user.email} 
+        const cartItem = {foodId:_id , name,image,price,email:user.email,category:category} 
         fetch('http://localhost:5000/carts',{
           method:'POST',
           headers:{'content-type':'application/json'},
@@ -55,15 +55,15 @@ const FoodCard = ({item}) => {
     
     }
     return (
-        <div>
-           <div className="card w-96 bg-base-100 shadow-xl mt-6">
-  <figure><img  src={image} alt="" /></figure>
+        <div className="ps-5 lg:ps-2">
+           <div className="card w-96 h-[500px] bg-base-100 shadow-xl mt-6">
+  <figure><img className=""  src={image} alt="" /></figure>
   <div className="card-body">
-    <h2 className="card-title text-success">{name}</h2>
+    <h2 className="card-title text-teal-500">{name}</h2>
     <p>{recipe}</p>
-    <p className="text-success font-semibold">${price}</p>
+    <p className="text-teal-500 font-semibold">${price}</p>
     <div className="card-actions justify-end">
-      <button onClick={()=>handleAddToCart(item)} className="btn btn-outline btn-success border-b-8 hover:bg-success">Add to cart</button>
+      <button onClick={()=>handleAddToCart(item)} className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-b-8 border-2 hover:text-black">Add to cart</button>
     </div>
   </div>
 </div> 

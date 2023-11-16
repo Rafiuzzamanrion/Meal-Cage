@@ -13,7 +13,7 @@ const Home = () => {
         <div>
             {/* ======= for dynamic page title ========== */}
                  <Helmet>
-        <title>Bistro-Boss | Home </title>
+        <title>MealCage | Home </title>
             </Helmet>
             {/* ======== end ========= */}
             

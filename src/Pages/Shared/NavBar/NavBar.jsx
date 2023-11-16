@@ -5,13 +5,15 @@ import avatar from "../../../assets/avatar2.jpg";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
 import UseCart from "../../../Hooks/UseCart";
-import img from '/logo.png'
+import img from '/icon.jpg'
+import UseAdmin from "../../../Hooks/UseAdmin";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   // ===== this is come from UseCart hook =========
   const [cart] = UseCart();
+  const [isAdmin] = UseAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -40,15 +42,21 @@ const NavBar = () => {
       <li>
         <Link to={"/order/salad"}>ORDER FOOD</Link>
       </li>
-     <li>
-        <Link to={"/dashboard/home"}>ORDER DETAILS</Link>
+      <li>
+        <Link to={"/contact"}>CONTACT US</Link>
       </li>
-      
       {!user && (
         <li>
           <Link to={"/login"}>Login</Link>
         </li>
       )}
+     <li>
+        {
+        isAdmin?  <Link to={"/dashboard/adminHome"}>DASHBOARD</Link>: (user && <Link to={"/dashboard/userHome"}>ORDER DETAILS</Link>)
+        }
+      </li>
+      
+     
       <li>
         <Link></Link>
       </li>
@@ -83,7 +91,7 @@ const NavBar = () => {
             </ul>
           </div>
           <Link to={'/'} className="btn btn-ghost uppercase text-xl">
-          <img className="w-7 h-4" src={img} alt="" /> Meal Cage
+          <img className="w-10 h-10 rounded-full" src={img} alt="" /> Meal Cage
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -95,22 +103,28 @@ const NavBar = () => {
           <div className="navbar-end">
             <ul className="ms-5 mr-3">
             <li>
-        <Link  className="flex flex-row items-center" to={"/dashboard/home"}>
+       {isAdmin?
+         <Link  className="flex flex-row items-center" to={"/dashboard/adminHome"}>
          <FaShoppingCart size={25} /> 
-          <div className="badge badge-success ms-1">+{cart?.length || 0}</div>
+          <div className="badge text-teal-500 ms-1">+{cart?.length || 0}</div>
+        </Link>:<Link  className="flex flex-row items-center" to={"/dashboard/myCart"}>
+         <FaShoppingCart size={25} /> 
+          <div className="badge text-teal-500 border-teal-500 ms-1">+{cart?.length || 0}</div>
         </Link>
+       }
       </li>
+      
             </ul>
             
             <div className="avatar">
-              <div className="w-10 mr-3 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
+              <div className="w-10 mr-3 rounded-full ring ring-teal-500 ring-offset-base-100 ring-offset-2">
                 <img src={avatar} />
               </div>
             </div>
            
             <button
               onClick={handleLogOut}
-              className="btn  btn-outline btn-success"
+              className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 hover:text-black border-2"
             >
               Logout
             </button>
@@ -119,7 +133,7 @@ const NavBar = () => {
          : 
           <div className="navbar-end">
             <Link to="/login">
-              <button className="btn btn-outline btn-success">Login</button>
+              <button className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-2 hover:text-black">Login</button>
             </Link>
           </div>
           

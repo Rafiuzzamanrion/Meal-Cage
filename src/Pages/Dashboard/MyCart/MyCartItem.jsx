@@ -1,6 +1,7 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import UseCart from "../../../Hooks/UseCart";
+import axios from "axios";
 
 const MyCartItem = ({ item }) => {
   const { name, image, price, _id } = item;
@@ -16,12 +17,11 @@ const MyCartItem = ({ item }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${_id}`, {
+        axios.delete(`http://localhost:5000/carts/${_id}`, {
           method: "DELETE",
         })
-          .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount > 0) {
+            if (data.data.deletedCount > 0) {
               refetch();
               Swal.fire(
                 "Deleted!",
@@ -34,7 +34,7 @@ const MyCartItem = ({ item }) => {
     });
   };
   return (
-    <div className="card card-side bg-base-100 shadow-xl space-between">
+    <div className="card card-side bg-base-100 shadow-xl">
       <figure>
         <img
           style={{ borderRadius: "0 200px 200px 200px", padding: "15px" }}

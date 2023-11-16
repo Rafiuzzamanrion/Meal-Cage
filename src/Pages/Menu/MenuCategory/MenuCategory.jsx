@@ -12,7 +12,7 @@ const MenuCategory = ({items,img,title,buttonName}) => {
                 
             </div> 
             <div className="flex items-center justify-center pb-8 rounded-b-xl">
-            <Link to={`/order/${title}`}><button className="flex items-center justify-center btn btn-outline btn-success border-b-8 mt-2">{buttonName}</button></Link>
+            <Link to={`/order/${title}`}><button className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-b-8 hover:text-black border-2 mt-2">{buttonName}</button></Link>
             </div>
         </div>
     );

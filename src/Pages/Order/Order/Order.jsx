@@ -21,11 +21,11 @@ const Order = () => {
     const salads = menu.filter(item => item.category === 'salad')
     const pizzas = menu.filter(item => item.category === 'pizza')
     const drinks = menu.filter(item => item.category === 'drinks')
-    const offered = menu.filter(item => item.category === 'popular')
+   
   return (
     <div>
          <Helmet>
-        <title>Bistro-Boss | Order Food</title>
+        <title>MealCage | Order Food</title>
             </Helmet>
       <Cover img={orderImg} title={"ORDER FOOD"}></Cover>
 
@@ -36,7 +36,7 @@ const Order = () => {
           <Tab>Soup</Tab>
           <Tab>Dessert</Tab>
           <Tab>Drinks</Tab>
-          <Tab>Offered</Tab>
+          
         </TabList>
         <TabPanel>
            <OrderTab items={salads}></OrderTab>
@@ -52,9 +52,6 @@ const Order = () => {
         </TabPanel>
         <TabPanel>
         <OrderTab items={drinks}></OrderTab>
-        </TabPanel>
-        <TabPanel>
-        <OrderTab items={offered}></OrderTab>
         </TabPanel>
       </Tabs>
     </div>

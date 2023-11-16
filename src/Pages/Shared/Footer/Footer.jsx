@@ -1,11 +1,11 @@
-import img from '/logo.png'
+import img from '/icon.jpg'
 
 const Footer = () => {
     return (
         <footer className="mt-10">
             <div className="footer p-10 bg-neutral text-neutral-content rounded-t-xl">
   <aside>
-    <img className='w-24' src={img} alt="" />
+    <img className='w-24 rounded-full' src={img} alt="" />
     <p> MEAL CAGE Restaurant Ltd.<br/>Providing  quality foods since 1992</p>
   </aside> 
   <nav>

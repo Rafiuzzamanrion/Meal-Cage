@@ -3,7 +3,7 @@ import {AuthContext} from "../../Providers/AuthProvider";
 import {Link, useNavigate} from "react-router-dom";
 import {Helmet} from "react-helmet-async";
 import Swal from "sweetalert2";
-import bg from '../../assets/others/authentication.gif'
+import bg from '../../assets/others/authentication2.png'
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 
@@ -158,7 +158,7 @@ const alertError5 = <div className="alert alert-warning">
      
       <div>
          <Helmet>
-      <title>Bistro-Boss | Sign up</title>
+      <title>MealCage | Sign up</title>
           </Helmet>
           <div className="hero min-h-screen">
         <div className="hero-content flex-col md:flex-row">
@@ -166,7 +166,7 @@ const alertError5 = <div className="alert alert-warning">
             
           <img className="rounded-xl" src={bg} alt="" />
           </div>
-          <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+          <div className="card md:w-1/2 max-w-sm shadow-2xl">
             <form onSubmit={ handleSignUp} className="card-body">
             <h1 className="text-5xl font-bold text-center">Sign Up!</h1>
             <div className='text-success mt-1'>{success}</div>
@@ -175,31 +175,31 @@ const alertError5 = <div className="alert alert-warning">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
-                <input type="text" name="name" placeholder="name" className="input input-bordered" required />
+                <input type="text" name="name" placeholder="name" className="input input-accent input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Photo URL</span>
                 </label>
-                <input type="text" name="photo" placeholder="photo URL" className="input input-bordered"  />
+                <input type="text" name="photo" placeholder="photo URL" className="input input-accent input-bordered"  />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                <input type="email" name="email" placeholder="email" className="input input-accent input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                <input type="password" name="password" placeholder="password" className="input input-accent input-bordered" required />
               </div>
               <div className="form-control mt-6">
                
-                <input className="btn btn-success hover:bg-transparent hover:border-b-8" type="submit" value="Sign Up" />
+                <input className="btn bg-teal-500 text-black border-2 hover:border-teal-500 hover:bg-transparent hover:border-b-8" type="submit" value="Sign Up" />
               </div>
-              <p>Already have an account ? <Link className='text-success font-bold' to='/login'> Login</Link></p>
+              <p>Already have an account ? <Link className='text-teal-500 font-bold' to='/login'> Login</Link></p>
               <SocialLogin></SocialLogin>
             </form>
           </div>

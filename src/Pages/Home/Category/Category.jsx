@@ -6,12 +6,15 @@ import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 
-import img1 from '../../../assets/home/slide1.jpg';
-import img2 from '../../../assets/home/slide2.jpg';
-import img3 from '../../../assets/home/slide3.jpg';
-import img4 from '../../../assets/home/slide4.jpg';
-import img5 from '../../../assets/home/slide5.jpg';
+import img1 from '../../../assets/menu/salad.jpg';
+import img2 from '../../../assets/menu/pizza.jpg';
+import img3 from '../../../assets/menu/soup.jpg';
+import img4 from '../../../assets/menu/dessert-2.jpg';
+import img5 from '../../../assets/menu/salad-2.jpg';
+
+
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
+import {Link} from 'react-router-dom';
 
 
 
@@ -28,33 +31,36 @@ const Category = () => {
             
         </SectionTitle>
          <Swiper
-        slidesPerView={3}
+        slidesPerView={2}
         spaceBetween={30}
         navigation
         modules={[Navigation]}
         className="mySwiper mb-24 mt-24"
       >
+      
+       <SwiperSlide>
+       <Link to={'/order/salad'}>
+           <img className='w-full rounded-xl' src={img1} alt="" />
+           <h3 className='text-2xl uppercase text-center text-white -mt-20'>Salads</h3>
+           </Link>
+       </SwiperSlide>
+       
         <SwiperSlide>
-           
-            <img className='w-full rounded-b-xl' src={img1} alt="" />
-            <h3 className='text-2xl uppercase text-center text-white -mt-20'>Salads</h3>
-          
+            <Link to={'/order/pizza'}><img className='w-full rounded-xl' src={img2} alt="" />
+            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>Pizzas</h3></Link>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full' src={img2} alt="" />
-            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>Pizzas</h3>
+            
+            <Link to={'/order/soups'}><img className='w-full lg:h-[420px] rounded-xl' src={img3} alt="" />
+            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>Soups</h3></Link>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full' src={img3} alt="" />
-            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>Soups</h3>
+            <Link to={'/order/dessert'}><img className='w-full rounded-xl' src={img4} alt="" />
+            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>Desserts</h3></Link>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full' src={img4} alt="" />
-            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>Desserts</h3>
-        </SwiperSlide>
-        <SwiperSlide>
-            <img className='w-full' src={img5} alt="" />
-            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>salads</h3>
+        <Link to={'/order/drinks'}><img className='w-full rounded-xl ' src={img5} alt="" />
+            <h3 className='text-2xl uppercase text-center  text-white -mt-20'>drinks</h3></Link>
         </SwiperSlide>
         
       </Swiper>

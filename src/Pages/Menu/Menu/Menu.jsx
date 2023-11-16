@@ -1,10 +1,11 @@
 import {Helmet} from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
-import menuImg from '../../../assets/menu/banner3.jpg'
-import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
-import saladImg from '../../../assets/menu/salad-bg.jpg'
-import soupImg from '../../../assets/menu/soup-bg.jpg'
-import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
+import menuImg from '../../../assets/menu/menu.jpg'
+import pizzaImg from '../../../assets/menu/pizza.jpg'
+import saladImg from '../../../assets/menu/salad-2.jpg'
+import soupImg from '../../../assets/menu/soup.jpg'
+import dessertImg from '../../../assets/menu/dessert.jpg'
+import drinksImg from '../../../assets/menu/drinks.jpg'
 import UseMenu from "../../../Hooks/UseMenu";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
@@ -22,7 +23,7 @@ const Menu = () => {
     return (
         <div>
              <Helmet>
-        <title>Bistro-Boss | Menu</title>
+        <title>MealCage | Menu</title>
             </Helmet>
 
             {/* page banner cover */}
@@ -49,7 +50,7 @@ const Menu = () => {
            <MenuCategory title={'soups'} img={soupImg} items={soups} buttonName={'order your favorite soups'}></MenuCategory>
 
            {/* drinks item */}
-           <MenuCategory title={'drinks'} img={soupImg} items={drinks} buttonName={'order your favorite drinks'}></MenuCategory>
+           <MenuCategory title={'drinks'} img={drinksImg} items={drinks} buttonName={'order your favorite drinks'}></MenuCategory>
           
         </div>
     );

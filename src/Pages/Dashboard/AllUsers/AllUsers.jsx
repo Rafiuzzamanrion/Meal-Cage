@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
-import {FaUserShield} from "react-icons/fa";
+import { FaUserShield } from "react-icons/fa";
 
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 
 const AllUsers = () => {
-  const token = localStorage.getItem('access-token')
+  const token = localStorage.getItem("access-token");
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/users`,{
-        headers:{authorization:`bearer ${token}`}
+      const res = await axios.get(`http://localhost:5000/users`, {
+        headers: { authorization: `bearer ${token}` },
       });
 
       return res.data;
@@ -46,42 +46,79 @@ const AllUsers = () => {
       }
     });
   };
-//   =========== handleDelete end ========
+  //   =========== handleDelete end ========
 
-const handleMakeAdmin =(user)=>{
+  const handleMakeAdmin = (user) => {
+    Swal.fire({
+      title: "Are you want to make him Admin ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#14A44D",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Make Admin !",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+          method: "PATCH",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              refetch();
+              Swal.fire("Updated!", `${user.name} is now an Admin`, "success");
+            }
+          });
+      }
+    });
+  };
+
+  const handleAdmin = (event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const role = 'admin'
+    const admin = {name,email,role};
+    
 
     Swal.fire({
-        title: "Are you want to make him Admin ?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#14A44D",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Make Admin !",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch(`http://localhost:5000/users/admin/${user._id}`, {
-            method: "PATCH",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.modifiedCount) {
-                refetch();
-                Swal.fire(
-                  "Updated!",
-                `${user.name} is now an Admin`,
-                  "success"
-                );
-              }
-            });
-        }
-      });
-
-}
-
+      title: "Do you want to make him Admin ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#14A44D",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Make Admin !",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.post(`http://localhost:5000/new-admin`,admin)
+         
+          .then((data) => {
+            if (data.data.insertedId) {
+              refetch();
+              form.reset()
+              Swal.fire({
+                title: "Added!",
+                text: `${name} is now an Admin`,
+                icon: "success"
+              });
+            }
+            else{
+              Swal.fire({
+                position: "top",
+                icon: "error",
+                title: `${name} is already an Admin`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="w-full">
       <Helmet>
-        <title>Meal | All Users</title>
+        <title>MealCage | Manage-Users</title>
       </Helmet>
 
       <div>
@@ -89,9 +126,44 @@ const handleMakeAdmin =(user)=>{
           {" "}
           total users : {users.length}
         </h1>
+      <form onSubmit={handleAdmin}>
+      <div className="flex justify-center">
+          <div className="w-96 bg-green-100 rounded-xl shadow-xl p-8">
+            <div className="form-control w-full max-w-xs ">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+              name="name"
+              required
+                type="text"
+                placeholder="Type here"
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+              required
+              name="email"
+                type="email"
+                placeholder="Type here"
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div className="flex justify-center mt-4">
+            <input className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-b-8 border-2 hover:text-black" type="submit" value="Make Admin" />
+            </div>
+          </div>
+         
+        </div>
+       
+      </form>
       </div>
 
-      <div className="bg-base-100 p-5 rounded-xl shadow-xl ms-2 mt-8">
+      <div className="p-5 rounded-xl shadow-xl ms-2 mt-8">
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
@@ -106,17 +178,23 @@ const handleMakeAdmin =(user)=>{
             </thead>
             <tbody>
               {/* row  */}
-              {users.map((user,index) => (
+              {users.map((user, index) => (
                 <tr key={user._id}>
-                  <th>{index+1}</th>
+                  <th>{index + 1}</th>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>{user.role === 'admin'? 'admin':<button
-                      onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-circle btn-outline text-success  hover:bg-success"
-                    >
-                      <FaUserShield size={35}></FaUserShield>
-                    </button> }</td>
+                  <td>
+                    {user.role === "admin" ? (
+                      "admin"
+                    ) : (
+                      <button
+                        onClick={() => handleMakeAdmin(user)}
+                        className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-b-8 border-2 hover:text-black"
+                      >
+                        <FaUserShield size={35}></FaUserShield>
+                      </button>
+                    )}
+                  </td>
                   <td>
                     <button
                       onClick={() => handleDelete(user)}
@@ -136,7 +214,3 @@ const handleMakeAdmin =(user)=>{
 };
 
 export default AllUsers;
-
-
-
-

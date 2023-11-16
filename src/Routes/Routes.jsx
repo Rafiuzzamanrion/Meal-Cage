@@ -8,13 +8,19 @@ import Menu from "../Pages/Menu/Menu/Menu";
 import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
-import Secrete from "../Pages/Shared/Secrete/Secrete";
 import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddItem from "../Pages/Dashboard/AddItem/AddItem";
 import AdminRoutes from "./AdminRoutes";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import Reservation from "../Pages/Dashboard/Reservation/Reservation";
+import Contact from "../Pages/Contact/Contact";
 
 
 
@@ -48,38 +54,67 @@ const router = createBrowserRouter([
         element:<SignUp></SignUp>
       },
       {
-        path:'/secrete',
-        element:<PrivateRoutes><Secrete></Secrete></PrivateRoutes>
+       path:'/contact',
+       element:<Contact></Contact>
       }
-
 
       ]
     },
 
     // ============= Dashboard layout ===============
     {
-      path:'/dashboard',
+      path:'dashboard',
       element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       children:[
+
+        // ======== user routes ===========
         {
-          path:'mycart',
-          element:<MyCart></MyCart>
+        path:'userHome',
+        element:<UserHome></UserHome>
         },
         {
-          path:'allusers',
+          path:'myCart',
+          element:<MyCart></MyCart>,
+        
+      },
+        {
+          path:'payment',
+          element:<Payment></Payment>
+        },
+        {
+          path:'paymentHistory',
+          element:<PaymentHistory></PaymentHistory>
+        },
+        {
+          path:'reservation',
+          element:<Reservation></Reservation>
+        },
+        
+        
+
+        // ========= admin routes ==============
+        {path:'adminHome',
+      element:<AdminRoutes><AdminHome></AdminHome></AdminRoutes>
+        },
+        {
+          path:'allUsers',
           element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>
         },
+       
         {
-          path:'home',
-          
+          path:'addItem',
+          element:<AdminRoutes><AddItem></AddItem></AdminRoutes>
         },
         {
-          path:'additem',
-          element:<AdminRoutes><AddItem></AddItem></AdminRoutes>
-        }
+          path:'manageItems',
+          element:<AdminRoutes><ManageItems></ManageItems></AdminRoutes>
+        },
+       
+        
 
-      ]
-    }
+      ],
+    },
+  
   ]);
 
   export default router;
