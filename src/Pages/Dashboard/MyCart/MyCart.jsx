@@ -17,7 +17,10 @@ const MyCart = () => {
         <title>MealCage | My cart</title>
             </Helmet>
            
-            <div className="uppercase my-12 str text-center bg-green-100 shadow-xl p-8 rounded-xl">
+            <div className="uppercase my-12 str text-center bg-green-100 shadow-xl p-8 rounded-xl"
+            data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="800">
                 <h3 className="text-3xl my-3">Total Order : {cart.length} </h3>
                 <h3 className="text-3xl my-3">Total Price : <span className="font-bold"> ${total.toFixed(2)}</span> </h3>
                <Link to="/dashboard/payment"> <button className="btn btn-outline btn-success border-b-8"><BiDollarCircle size={25}/>pay now<BiRightArrowAlt size={25}/></button></Link>

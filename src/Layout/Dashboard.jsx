@@ -21,7 +21,9 @@ const Dashboard = () => {
   const [isAdmin] = UseAdmin();
 
   return (
-    <div>
+    <div data-aos="fade-right"
+    data-aos-easing="linear"
+    data-aos-duration="800">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
@@ -36,6 +38,7 @@ const Dashboard = () => {
           {/* Page content here */}
           <Outlet></Outlet>
         </div>
+        
         <div className="drawer-side">
           <label
             htmlFor="my-drawer-2"

@@ -10,7 +10,10 @@ const Cover = ({img,title}) => {
         bgImageAlt="the menu"
         strength={-300}
     >
-         <div className="hero h-[550px]">
+         <div className="hero h-[550px]"
+          data-aos="zoom-in"
+          data-aos-easing="linear"
+          data-aos-duration="700">
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md bg-slate-800 bg-opacity-50 p-12 ">

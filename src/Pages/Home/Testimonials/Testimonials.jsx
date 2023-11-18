@@ -27,7 +27,10 @@ const Testimonials = () => {
         subHeading={'What our clients say'}
         ></SectionTitle>
 
-<Swiper navigation={true} modules={[Navigation,Autoplay]} autoplay={{delay:2500}} className="mySwiper">
+<Swiper navigation={true} modules={[Navigation,Autoplay]} autoplay={{delay:2500}} className="mySwiper"
+ data-aos="fade-down"
+ data-aos-easing="linear"
+ data-aos-duration="800">
         
        {
         reviews.map(review => <SwiperSlide key={review._id}>

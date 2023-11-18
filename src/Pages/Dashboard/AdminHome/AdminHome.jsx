@@ -116,7 +116,10 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
       </Helmet>
       <h1 className="text-3xl my-6 ps-24">Hi, {user.displayName}</h1>
       <div className="grid md:grid-cols-2 gap-4 ps-24">
-        <div className="w-72 h-40 bg-green-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
+        <div className="w-72 h-40 bg-green-200 shadow-xl rounded-xl flex flex-col justify-center items-center"
+        data-aos="flip-left"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <h1 className="text-center items-center">
             <FaSackDollar size={40}/>
             </h1>
@@ -128,7 +131,10 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
              amount sold
             </h3>
         </div>
-        <div className="w-72 h-40 bg-red-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
+        <div className="w-72 h-40 bg-red-200 shadow-xl rounded-xl flex flex-col justify-center items-center"
+        data-aos="flip-left"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <h1 className="text-center items-center">
             <FaUser size={40}/>
             </h1>
@@ -140,7 +146,10 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
               customers
             </h3>
         </div>
-        <div className="w-72 h-40 bg-orange-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
+        <div className="w-72 h-40 bg-orange-200 shadow-xl rounded-xl flex flex-col justify-center items-center"
+        data-aos="flip-left"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <h1 className="text-center items-center">
           <GiForkKnifeSpoon size={40} />
             </h1>
@@ -152,7 +161,10 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
               Menu Items
             </h3>
         </div>
-        <div className="w-72 h-40 bg-blue-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
+        <div className="w-72 h-40 bg-blue-200 shadow-xl rounded-xl flex flex-col justify-center items-center"
+        data-aos="flip-left"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <h1 className="text-center items-center">
             <HiTemplate size={40}/>
             </h1>

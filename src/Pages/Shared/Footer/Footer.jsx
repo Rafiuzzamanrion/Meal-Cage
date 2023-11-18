@@ -2,7 +2,10 @@ import img from '/icon.jpg'
 
 const Footer = () => {
     return (
-        <footer className="mt-10">
+        <footer className="mt-10"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="800">
             <div className="footer p-10 bg-neutral text-neutral-content rounded-t-xl">
   <aside>
     <img className='w-24 rounded-full' src={img} alt="" />

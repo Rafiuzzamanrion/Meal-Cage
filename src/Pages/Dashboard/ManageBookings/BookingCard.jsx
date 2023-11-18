@@ -4,8 +4,10 @@ const BookingCard = ({booking}) => {
     console.log(foodId)
     
     return (
-        <div>
-            <div className="flex flex-col gap-3 ms-4 shadow-xl p-10 rounded-xl">
+        <div data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="800">
+            <div className="flex flex-col gap-3 ms-4 shadow-xl p-10 rounded-xl mt-5">
                 <h1><span className="text-teal-500 font-bold">User : </span>{email}</h1>
                 <h1><span className="text-teal-500 font-bold">Price : </span>${price}</h1>
                 <h1><span className="text-teal-500 font-bold">Quantity : </span>{quantity}</h1>

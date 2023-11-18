@@ -126,7 +126,9 @@ const AllUsers = () => {
           {" "}
           total users : {users.length}
         </h1>
-      <form onSubmit={handleAdmin}>
+      <form onSubmit={handleAdmin} data-aos="flip-right"
+      data-aos-easing="linear"
+      data-aos-duration="800">
       <div className="flex justify-center">
           <div className="w-96 bg-green-100 rounded-xl shadow-xl p-8">
             <div className="form-control w-full max-w-xs ">
@@ -164,7 +166,10 @@ const AllUsers = () => {
       </div>
 
       <div className="p-5 rounded-xl shadow-xl ms-2 mt-8">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto"
+        data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <table className="table">
             {/* head */}
             <thead>

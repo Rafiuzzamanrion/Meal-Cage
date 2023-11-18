@@ -11,6 +11,7 @@ const Featured = () => {
         bgImage={featuredImg}
         bgImageAlt="the menu"
         strength={-300}
+        
     >
         <div className="featured-item pt-2 my-20 bg-opacity-60 bg-slate-700">
             <SectionTitle
@@ -18,7 +19,10 @@ const Featured = () => {
             subHeading={'Check it out'}
             
             ></SectionTitle>
-            <div className="md:flex items-center justify-center px-24 pb-20 pt-8 text-white ">
+            <div className="md:flex items-center justify-center px-24 pb-20 pt-8 text-white "
+            data-aos="zoom-in"
+            data-aos-easing="linear"
+            data-aos-duration="700">
                <div>
                <img src={featuredImg} alt="" />
                </div>

@@ -13,7 +13,10 @@ const Contact = () => {
 
 <section className="mb-32">
 
-    <div className="flex justify-center">
+    <div className="flex justify-center"
+     data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="800">
         <div className="text-center md:max-w-xl lg:max-w-3xl">
             <h2 className="my-20 px-6 text-3xl font-bold uppercase text-teal-400">
                 Contact us
@@ -23,7 +26,10 @@ const Contact = () => {
 
     <div className="flex flex-wrap">
 
-        <form className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
+        <form className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6"
+         data-aos="fade-down-right"
+         data-aos-easing="linear"
+         data-aos-duration="800">
 
             <div className="mb-3 w-full">
                 <label className="block font-medium mb-[2px] text-teal-700" htmlFor="exampleInput90">
@@ -54,7 +60,10 @@ const Contact = () => {
 
         </form>
 
-        <div className="w-full pt-5 shrink-0 grow-0 basis-auto lg:w-7/12">
+        <div className="w-full pt-5 shrink-0 grow-0 basis-auto lg:w-7/12"
+         data-aos="fade-down-left"
+         data-aos-easing="linear"
+         data-aos-duration="800">
             <div className="flex flex-wrap">
                 <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
                     <div className="flex items-start">

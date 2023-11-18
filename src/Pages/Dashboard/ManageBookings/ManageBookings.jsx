@@ -20,6 +20,10 @@ const ManageBookings = () => {
             <Helmet>
                 <title>MealCage | Manage-booking</title>
             </Helmet>
+            <h1 className="text-center uppercase text-4xl"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="800">all bookings</h1>
             <div className="grid lg:grid-cols-2 gap-5">
                 {
                     bookings.map(booking => <BookingCard key={booking._id} booking={booking} refetch = {refetch}></BookingCard>)

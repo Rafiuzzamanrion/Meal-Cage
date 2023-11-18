@@ -28,6 +28,10 @@ const PaymentHistory = () => {
             <Helmet>
                 <title>MealCage | Payment-history</title>
             </Helmet>
+            <h1 className="text-center uppercase text-4xl mb-10"
+             data-aos="fade-down"
+             data-aos-easing="linear"
+             data-aos-duration="800">payment history</h1>
             <div className="grid grid-cols-1 gap-4 w-full">
                 {
                     payment.map(paymentData => <HistoryCard key={paymentData._id} paymentData={paymentData}></HistoryCard> )

@@ -38,7 +38,10 @@ const Reservation = () => {
   });
   };
   return (
-    <div className="border shadow-xl p-10 mx-3">
+    <div className="border shadow-xl p-10 mx-3"
+    data-aos="fade-right"
+             data-aos-easing="linear"
+             data-aos-duration="800">
       <Helmet>
         <title>MealCage | Reservation</title>
       </Helmet>

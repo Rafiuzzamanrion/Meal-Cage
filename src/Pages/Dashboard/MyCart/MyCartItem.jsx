@@ -34,7 +34,10 @@ const MyCartItem = ({ item }) => {
     });
   };
   return (
-    <div className="card card-side bg-base-100 shadow-xl">
+    <div className="card card-side bg-base-100 shadow-xl"
+    data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="800">
       <figure>
         <img
           style={{ borderRadius: "0 200px 200px 200px", padding: "15px" }}

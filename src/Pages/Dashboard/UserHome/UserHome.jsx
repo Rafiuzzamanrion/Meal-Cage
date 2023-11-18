@@ -140,7 +140,10 @@ const UserHome = () => {
       </Helmet>
       <h1 className="text-3xl my-6 ps-24">Hi, {user.displayName}</h1>
       <div className="grid md:grid-cols-2 gap-4 ps-24">
-        <div className="w-72 h-40 bg-green-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
+        <div className="w-72 h-40 bg-green-200 shadow-xl rounded-xl flex flex-col justify-center items-center"
+        data-aos="flip-right"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <h1 className="text-center items-center">
             <FaSackDollar size={40} />
           </h1>
@@ -152,7 +155,10 @@ const UserHome = () => {
             Total Spent
           </h3>
         </div>
-        <div className="w-72 h-40 bg-red-200 shadow-xl rounded-xl flex flex-col justify-center items-center">
+        <div className="w-72 h-40 bg-red-200 shadow-xl rounded-xl flex flex-col justify-center items-center"
+        data-aos="flip-right"
+        data-aos-easing="linear"
+        data-aos-duration="800">
           <h1 className="text-center items-center">
             <PiBowlFoodFill size={40} />
           </h1>

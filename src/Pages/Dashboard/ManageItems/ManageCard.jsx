@@ -3,7 +3,6 @@ import UseMenu from "../../../Hooks/UseMenu";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 
-
 const ManageCard = ({ item }) => {
   const { name, image, price, _id } = item;
   const [, refetch] = UseMenu();
@@ -33,36 +32,41 @@ const ManageCard = ({ item }) => {
     });
   };
 
-//   const handleEdit = (_id) => {
-//     console.log(_id);
-    // Swal.fire({
-    //     title: "Do you want to Edit it ?",
-    //     icon: "warning",
-    //     showCancelButton: true,
-    //     confirmButtonColor: "#14A44D",
-    //     cancelButtonColor: "#d33",
-    //     confirmButtonText: "Yes, Edit it!",
-    //   }).then((result) => {
-    //     if (result.isConfirmed) {
-    //       axios.delete(`http://localhost:5000/menu/${_id}`, {
-    //         method: "DELETE",
-    //       })
-    //         .then((data) => {
-    //           if (data.data.deletedCount > 0) {
-    //             refetch();
-    //             Swal.fire(
-    //               "Deleted!",
-    //               `${name} has been Edited successfully`,
-    //               "success"
-    //             );
-    //           }
-    //         });
-    //     }
-    //   });
-//   };
+  //   const handleEdit = (_id) => {
+  //     console.log(_id);
+  // Swal.fire({
+  //     title: "Do you want to Edit it ?",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#14A44D",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, Edit it!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       axios.delete(`http://localhost:5000/menu/${_id}`, {
+  //         method: "DELETE",
+  //       })
+  //         .then((data) => {
+  //           if (data.data.deletedCount > 0) {
+  //             refetch();
+  //             Swal.fire(
+  //               "Deleted!",
+  //               `${name} has been Edited successfully`,
+  //               "success"
+  //             );
+  //           }
+  //         });
+  //     }
+  //   });
+  //   };
 
   return (
-    <div className="w-full">
+    <div
+      className="w-full"
+      data-aos="fade-right"
+      data-aos-easing="linear"
+      data-aos-duration="800"
+    >
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
           <img
@@ -75,7 +79,7 @@ const ManageCard = ({ item }) => {
         <div className="card-body flex flex-row justify-center items-center">
           <h2 className="card-title">{name}</h2>
           <p className=" font-bold  text-teal-500 mx-6">${price}</p>
-         
+
           <button
             onClick={() => handleDelete(_id)}
             className="btn btn-outline btn-circle text-error border-2 hover:border-none hover:text-black  hover:bg-error"

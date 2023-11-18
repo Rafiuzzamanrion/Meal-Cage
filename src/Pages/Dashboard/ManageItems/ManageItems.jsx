@@ -7,7 +7,12 @@ const ManageItems = () => {
   const [menu] = UseMenu();
 
   return (
-    <div className="">
+    <div
+      className=""
+      data-aos="fade-right"
+      data-aos-easing="linear"
+      data-aos-duration="800"
+    >
       <Helmet>
         <title>MealCage | Manage items</title>
       </Helmet>
