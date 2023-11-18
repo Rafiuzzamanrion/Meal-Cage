@@ -17,7 +17,7 @@ const MyCartItem = ({ item }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/carts/${_id}`, {
+        axios.delete(`https://meal-cage-server.vercel.app/carts/${_id}`, {
           method: "DELETE",
         })
           .then((data) => {

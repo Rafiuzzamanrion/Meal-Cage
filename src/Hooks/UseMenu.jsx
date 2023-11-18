@@ -8,7 +8,7 @@ import axios from "axios";
     const {refetch, data: menu =[],isLoading:loading } = useQuery({
         queryKey: ['menu'],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/menu`)
+            const res = await axios.get(`https://meal-cage-server.vercel.app/menu`)
 
             return res.data;
       },

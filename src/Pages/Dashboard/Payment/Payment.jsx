@@ -15,7 +15,7 @@ const Payment = () => {
     // ===== easy way to addition ==========
     // ======= here 0 is initial value =========
     const total = cart.reduce((sum,item)=> item.price + sum,0 )
-    const price = parseFloat(total.toFixed(2))
+    const price = parseFloat(total?.toFixed(2))
 
     return (
         <div className="w-2/3">
@@ -23,6 +23,7 @@ const Payment = () => {
                 <title>MealsCage | Payment</title>
             </Helmet>
             <SectionTitle heading={'payment here'} subHeading={'have a nice day'}></SectionTitle>
+            <h1 className="text-3xl text-center uppercase my-8">Total Amount To Pay : <span className="font-semibold">${price}</span></h1>
              
              <Elements stripe={stripePromise}>
                 <CheckoutForm cart={cart} price = {price}></CheckoutForm>

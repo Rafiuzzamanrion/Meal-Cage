@@ -12,7 +12,7 @@ const PaymentHistory = () => {
     const {data: payment =[]} = useQuery({
         queryKey:['paymentHistory',user.email],
         queryFn: async () => {
-                const res = await axios.get( `http://localhost:5000/paymentHistory?email=${user.email}`);
+                const res = await axios.get( `https://meal-cage-server.vercel.app/paymentHistory?email=${user.email}`);
                 return res.data;
         },   
     })

@@ -114,7 +114,7 @@ const alertError5 = <div className="alert alert-warning">
             .then(()=>{
               // ========= posting user info to database ==========
               const saveUser = {name:name,email:email}
-              fetch('http://localhost:5000/users',{
+              fetch('https://meal-cage-server.vercel.app/users',{
                 method:'POST',
                 headers:{'content-type': 'application/json'},
                 body:JSON.stringify(saveUser)

@@ -19,7 +19,7 @@ const FoodCard = ({item}) => {
       item
       if(user && user.email){
         const cartItem = {foodId:_id , name,image,price,email:user.email,category:category} 
-        fetch('http://localhost:5000/carts',{
+        fetch('https://meal-cage-server.vercel.app/carts',{
           method:'POST',
           headers:{'content-type':'application/json'},
           body:JSON.stringify(cartItem)

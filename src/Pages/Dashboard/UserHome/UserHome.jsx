@@ -22,7 +22,7 @@ const UserHome = () => {
     queryKey: ["paymentHistory", user.email],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/paymentHistory?email=${user.email}`
+        `https://meal-cage-server.vercel.app/paymentHistory?email=${user.email}`
       );
       return res.data;
     },
@@ -32,7 +32,7 @@ const UserHome = () => {
     queryKey: ["chart-data-user", user.email],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/chart-data-user?email=${user.email}`
+        `https://meal-cage-server.vercel.app/chart-data-user?email=${user.email}`
       );
       return res.data;
     },
@@ -65,10 +65,12 @@ const UserHome = () => {
   newArray.push(dessertData);
 
   const soup = items.filter((item) => item.category === "soup");
+ const total = soup.reduce((sum, item) => item.price + sum, 0);
+ const newTotal = total?.toFixed(2)
   const soupData = {
     count: soup.length,
     category: "soup", // Set the category directly, assuming it's a constant for salad items
-    total: soup.reduce((sum, item) => item.price + sum, 0),
+    total:newTotal,
   };
   newArray.push(soupData);
 
@@ -149,7 +151,7 @@ const UserHome = () => {
           </h1>
           <h1 className="text-4xl font-bold text-center items-center">
             {" "}
-            ${parseFloat(totalSpent.toFixed(2))}
+            ${parseFloat(totalSpent?.toFixed(2))}
           </h1>
           <h3 className="text-xl font-semibold text-center uppercase">
             Total Spent

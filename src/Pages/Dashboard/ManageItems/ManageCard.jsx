@@ -43,7 +43,7 @@ const ManageCard = ({ item }) => {
   //     confirmButtonText: "Yes, Edit it!",
   //   }).then((result) => {
   //     if (result.isConfirmed) {
-  //       axios.delete(`http://localhost:5000/menu/${_id}`, {
+  //       axios.delete(`https://meal-cage-server.vercel.app/menu/${_id}`, {
   //         method: "DELETE",
   //       })
   //         .then((data) => {

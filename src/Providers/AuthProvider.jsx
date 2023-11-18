@@ -65,7 +65,7 @@ const AuthProvider = ({ children }) => {
         // ===== get and set jwt =========
         // ======= using axios instead of fetch =======
         if(currentUser){
-          axios.post('http://localhost:5000/jwt',{email:currentUser.email,})
+          axios.post('https://meal-cage-server.vercel.app/jwt',{email:currentUser.email,})
           .then(data =>{
             
             // ======= token is set to local storage ========

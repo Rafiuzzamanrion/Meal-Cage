@@ -16,7 +16,7 @@ const AdminHome = () => {
   const { data: states = {} } = useQuery({
     queryKey: ["admin-states"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/admin-states");
+      const res = await axios.get("https://meal-cage-server.vercel.app/admin-states");
       return res.data;
     },
   });
@@ -25,15 +25,15 @@ const AdminHome = () => {
   const { data:items =[] } = useQuery({
     queryKey: ["chart-data"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/chart-data");
+      const res = await axios.get("https://meal-cage-server.vercel.app/chart-data");
       return res.data;
     },
   });
-console.log(items)
+
   const newArray = [];
-  console.log(newArray)
+
+
   const salad = items.filter(item => item.category === 'salad');
-  
   const SaladData = {
     count: salad.length,
     category: 'salad', // Set the category directly, assuming it's a constant for salad items
@@ -50,10 +50,12 @@ console.log(items)
   newArray.push(dessertData)
 
   const soup = items.filter(item => item.category === 'soup');
+  const total = soup.reduce((sum, item) => item.price + sum, 0)
+  const newTotal = parseFloat(total?.toFixed(2))
   const soupData = {
     count: soup.length,
     category: 'soup', // Set the category directly, assuming it's a constant for salad items
-    total: soup.reduce((sum, item) => item.price + sum, 0),
+   total:newTotal,
   };
   newArray.push(soupData)
 
@@ -125,7 +127,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
             </h1>
             <h1 className="text-4xl font-bold text-center items-center">
               {" "}
-              ${states.revenue}
+              ${parseFloat(states?.revenue?.toFixed(2))}
             </h1>
             <h3 className="text-xl font-semibold text-center uppercase">
              amount sold

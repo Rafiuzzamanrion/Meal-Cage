@@ -63,7 +63,7 @@ const AddItem = () => {
   };
   // ===== this is for updating all item in menu just one click====
   // const handleUpdate = ()=>{
-  //   axios.post('http://localhost:5000/updateProducts')
+  //   axios.post('https://meal-cage-server.vercel.app/updateProducts')
   //   .then((data)=>{
   //     console.log(data.data)
   //   })

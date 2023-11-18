@@ -8,7 +8,7 @@ const ManageBookings = () => {
     const {data: bookings = [],refetch} = useQuery({
         queryKey:['bookingsHistory'],
         queryFn: async ()=>{
-            const res = await axios.get('http://localhost:5000/bookingsHistory');
+            const res = await axios.get('https://meal-cage-server.vercel.app/bookingsHistory');
             return res.data;
         }
     });

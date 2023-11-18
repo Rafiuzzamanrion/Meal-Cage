@@ -11,7 +11,7 @@ const AllUsers = () => {
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/users`, {
+      const res = await axios.get(`https://meal-cage-server.vercel.app/users`, {
         headers: { authorization: `bearer ${token}` },
       });
 
@@ -29,7 +29,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`https://meal-cage-server.vercel.app/users/${user._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -58,7 +58,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, Make Admin !",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://meal-cage-server.vercel.app/users/admin/${user._id}`, {
           method: "PATCH",
         })
           .then((res) => res.json())
@@ -72,14 +72,13 @@ const AllUsers = () => {
     });
   };
 
-  const handleAdmin = (event) =>{
+  const handleAdmin = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
-    const role = 'admin'
-    const admin = {name,email,role};
-    
+    const role = "admin";
+    const admin = { name, email, role };
 
     Swal.fire({
       title: "Do you want to make him Admin ?",
@@ -90,25 +89,25 @@ const AllUsers = () => {
       confirmButtonText: "Yes, Make Admin !",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.post(`http://localhost:5000/new-admin`,admin)
-         
+        axios
+          .post(`https://meal-cage-server.vercel.app/new-admin`, admin)
+
           .then((data) => {
             if (data.data.insertedId) {
               refetch();
-              form.reset()
+              form.reset();
               Swal.fire({
                 title: "Added!",
                 text: `${name} is now an Admin`,
-                icon: "success"
+                icon: "success",
               });
-            }
-            else{
+            } else {
               Swal.fire({
                 position: "top",
                 icon: "error",
                 title: `${name} is already an Admin`,
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
               });
             }
           });
@@ -126,50 +125,57 @@ const AllUsers = () => {
           {" "}
           total users : {users.length}
         </h1>
-      <form onSubmit={handleAdmin} data-aos="flip-right"
-      data-aos-easing="linear"
-      data-aos-duration="800">
-      <div className="flex justify-center">
-          <div className="w-96 bg-green-100 rounded-xl shadow-xl p-8">
-            <div className="form-control w-full max-w-xs ">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input
-              name="name"
-              required
-                type="text"
-                placeholder="Type here"
-                className="input input-bordered w-full max-w-xs"
-              />
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-              required
-              name="email"
-                type="email"
-                placeholder="Type here"
-                className="input input-bordered w-full max-w-xs"
-              />
-            </div>
-            <div className="flex justify-center mt-4">
-            <input className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-b-8 border-2 hover:text-black" type="submit" value="Make Admin" />
+        <form
+          onSubmit={handleAdmin}
+          data-aos="flip-right"
+          data-aos-easing="linear"
+          data-aos-duration="800"
+        >
+          <div className="flex justify-center">
+            <div className="w-96 bg-green-100 rounded-xl shadow-xl p-8">
+              <div className="form-control w-full max-w-xs ">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  name="name"
+                  required
+                  type="text"
+                  placeholder="Type here"
+                  className="input input-bordered w-full max-w-xs"
+                />
+              </div>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  required
+                  name="email"
+                  type="email"
+                  placeholder="Type here"
+                  className="input input-bordered w-full max-w-xs"
+                />
+              </div>
+              <div className="flex justify-center mt-4">
+                <input
+                  className="btn btn-outline hover:bg-teal-400 hover:border-none text-teal-500 border-b-8 border-2 hover:text-black"
+                  type="submit"
+                  value="Make Admin"
+                />
+              </div>
             </div>
           </div>
-         
-        </div>
-       
-      </form>
+        </form>
       </div>
 
       <div className="p-5 rounded-xl shadow-xl ms-2 mt-8">
-        <div className="overflow-x-auto"
-        data-aos="fade-right"
-        data-aos-easing="linear"
-        data-aos-duration="800">
+        <div
+          className="overflow-x-auto"
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="800"
+        >
           <table className="table">
             {/* head */}
             <thead>

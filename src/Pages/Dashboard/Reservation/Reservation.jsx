@@ -24,7 +24,7 @@ const Reservation = () => {
         confirmButtonText: "Yes, Reserve it!"
       }).then((result) => {
         if (result.isConfirmed) {
-    axios.post('http://localhost:5000/reservation',data)
+    axios.post('https://meal-cage-server.vercel.app/reservation',data)
     .then(res =>{
         if(res.data.insertedId){
             Swal.fire({

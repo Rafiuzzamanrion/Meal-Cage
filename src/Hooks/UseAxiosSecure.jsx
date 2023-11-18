@@ -11,7 +11,7 @@ const UseAxiosSecure = () => {
     const navigate = useNavigate();
     
     const axiosSecure = axios.create({
-        baseURL : `http://localhost:5000`,
+        baseURL : `https://meal-cage-server.vercel.app`,
     })
 
     useEffect(()=>{

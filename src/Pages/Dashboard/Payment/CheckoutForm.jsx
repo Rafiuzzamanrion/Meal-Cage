@@ -16,7 +16,7 @@ const CheckoutForm = ({ price,cart }) => {
   const [clientSecret, setClientSecret] = useState();
 
   useEffect(() => {
-    axios.post("http://localhost:5000/create-payment-intent", {
+    axios.post("https://meal-cage-server.vercel.app/create-payment-intent", {
        price
     })
    
@@ -100,7 +100,7 @@ const CheckoutForm = ({ price,cart }) => {
             foodId:cart.map(item => item.foodId),
         }
             
-        axios.post('http://localhost:5000/payments',payment)
+        axios.post('https://meal-cage-server.vercel.app/payments',payment)
         .then(res=>{
             if(res.data.insertResult.insertedId){
                 Swal.fire({
