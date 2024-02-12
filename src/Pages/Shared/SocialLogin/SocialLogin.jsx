@@ -1,13 +1,14 @@
 import {useContext} from 'react';
 import google from '/google.png'
 import {AuthContext} from '../../../Providers/AuthProvider';
-import { useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
    
-    const navigate = useNavigate()
-    
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const {googleSignIn} = useContext(AuthContext);
 
@@ -24,16 +25,27 @@ const SocialLogin = () => {
                 body:JSON.stringify(saveUser)
               })
               .then(res => res.json())
-              .then(() =>{
-                navigate('/')
+              .then((data) =>{
+                if(data.insertedId){
+                navigate(from, { replace: true });
                   Swal.fire({
                     position: 'top',
                     icon: 'success',
-                    title: 'You have successfully created/logged in to your account !!',
+                    title: 'You have successfully created an account !!',
                     showConfirmButton: false,
                     timer: 1500
                   })
-             
+                }
+                else{
+                  navigate(from, { replace: true });
+                  Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'You have successfully logged in herelo !!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                }
                   // ========= end of posting ===========
                 
                 
