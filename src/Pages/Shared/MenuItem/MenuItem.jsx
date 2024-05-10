@@ -10,7 +10,7 @@ const MenuItem = ({ item }) => {
       <figure>
         <img
           style={{ borderRadius: "0 200px 200px 200px", padding: "15px" }}
-          className="w-[120px] h-[120px] lg:ms-5 mr-5 md:pr-6 md:ps-6 md:ms-4"
+          className="md:w-[120px] h-[120px] lg:ms-5 mr-5 md:pr-6 md:ps-6 md:ms-4"
           src={image}
           alt=""
         />

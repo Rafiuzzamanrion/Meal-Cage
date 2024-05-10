@@ -55,11 +55,11 @@ const FoodCard = ({item}) => {
     
     }
     return (
-        <div className="ps-5 lg:ps-2"
+        <div className=""
         data-aos="zoom-in"
         data-aos-easing="linear"
         data-aos-duration="800">
-           <div className="card w-96 h-[500px] bg-base-100 shadow-xl mt-6">
+           <div className="card w-80  md:w-96 h-[500px] bg-base-100 shadow-xl mt-6">
   <figure><img className=""  src={image} alt="" /></figure>
   <div className="card-body">
     <h2 className="card-title text-teal-500">{name}</h2>
