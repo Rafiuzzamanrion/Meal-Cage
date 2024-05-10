@@ -25,9 +25,8 @@ const SocialLogin = () => {
                 body:JSON.stringify(saveUser)
               })
               .then(res => res.json())
-              .then((data) =>{
+              .then(data =>{
                 if(data.insertedId){
-                navigate(from, { replace: true });
                   Swal.fire({
                     position: 'top',
                     icon: 'success',
@@ -35,16 +34,18 @@ const SocialLogin = () => {
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navigate(from, { replace: true });
                 }
                 else{
-                  navigate(from, { replace: true });
+                 
                   Swal.fire({
                     position: 'top',
                     icon: 'success',
-                    title: 'You have successfully logged in herelo !!',
+                    title: 'You have successfully logged in here !!',
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navigate(from, { replace: true });
                 }
                   // ========= end of posting ===========
                 

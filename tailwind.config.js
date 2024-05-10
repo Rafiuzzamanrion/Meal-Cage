@@ -9,6 +9,9 @@ export default {
       primary: "#fda4af"
     }},
   },
+  daisyui: {
+    themes: ["light"],
+  },
   plugins: [require("daisyui")],
 }
 
